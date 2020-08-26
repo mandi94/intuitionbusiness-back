@@ -2,7 +2,7 @@ const mongoose=require('mongoose')
 const validator =require('validator')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
-const answer = require('./answer')
+
 
 const userSchema = new mongoose.Schema({
     name:{
@@ -46,7 +46,14 @@ const userSchema = new mongoose.Schema({
             required: true,
             ref:'Question'
         },
-        userAnswer:[{ type: String }],
+        userAnswer:[{ 
+            optionId:{
+                type:String
+            },
+            description:{
+                type:String
+            }
+        }],
     }],
     avatar:{
         type:Buffer

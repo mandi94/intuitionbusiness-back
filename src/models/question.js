@@ -9,7 +9,13 @@ const questionSchema = new  mongoose.Schema({
         unique:true
     },
     option:{
-        questionOptions:[{ type: String }],
+        questionOptions:[{
+            optionId:{
+                type:String
+            },
+            description:{
+                type:String
+            }}],
     },
     type:{ type: String, enum: ['radiobutton', 'slider','chips','inputtext','checkbox'], default: 'inputtext' }
 },{
